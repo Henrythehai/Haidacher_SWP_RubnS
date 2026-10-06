@@ -12,15 +12,17 @@ def lottoziehung():
         zahlen.append(zahl)
     return gezogen
 
+def kontrolle(anzahl):
+    haufigkeit = [0] * 46
+
+    for i in range(anzahl):
+        gezogen = lottoziehung()
+
+        for zahl in gezogen:
+            haufigkeit[zahl - 1] += 1
+
+    for i in range(1, 47):
+        print(i, ":", haufigkeit[i -1])
+
 print(lottoziehung())
-
-haufigkeit = [0] * 46
-
-for i in range(1000):
-    gezogen = lottoziehung()
-
-    for zahl in gezogen:
-        haufigkeit[zahl - 1] += 1
-
-for i in range(1, 47):
-    print(i, ":", haufigkeit[i -1])
+print(kontrolle(1000))
